@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sociedad en la Nube - Noticiero Periodístico</title>
+<style>
+  /* RESET Y VARIABLES PROFESIONALES */
+  :root {
+    /* Paleta de colores profesionales optimizados */
+    --primary-blue: #1a365d;
+    --primary-blue-light: #2c5282;
+    --primary-blue-dark: #0c203f;
+    
+    --accent-red: #c53030;
+    --accent-red-light: #e53e3e;
+    --accent-red-dark: #9b2c2c;
+    
+    --accent-gold: #d69e2e;
+    --accent-gold-light: #ecc94b;
+    --accent-gold-dark: #b7791f;
+    
+    --accent-teal: #319795;
+    --accent-teal-light: #38b2ac;
+    --accent-teal-dark: #2c7a7b;
+    
+    --accent-purple: #805ad5;
+    --accent-purple-light: #9f7aea;
+    --accent-purple-dark: #6b46c1;
+    
+    /* Colores neutros optimizados para legibilidad */
+    --neutral-white: #ffffff;
+    --neutral-light: #f8fafc;
+    --neutral-gray-light: #f1f5f9;
+    --neutral-gray: #e2e8f0;
+    --neutral-medium: #94a3b8;
+    --neutral-dark: #475569;
+    --neutral-black: #1e293b;
+    --neutral-text: #0f172a;
+    
+    /* Gradientes optimizados */
+    --gradient-light-bg: linear-gradient(
+      135deg,
+      #f8fafc 0%,
+      #f1f5f9 25%,
+      #e2e8f0 50%,
+      #f1f5f9 75%,
+      #f8fafc 100%
+    );
+    
+    --gradient-blue-subtle: linear-gradient(
+      135deg,
+      rgba(26, 54, 93, 0.05) 0%,
+      rgba(49, 151, 149, 0.05) 50%,
+      rgba(26, 54, 93, 0.05) 100%
+    );
+    
+    --gradient-warm-subtle: linear-gradient(
+      135deg,
+      rgba(214, 158, 46, 0.05) 0%,
+      rgba(197, 48, 48, 0.05) 50%,
+      rgba(214, 158, 46, 0.05) 100%
+    );
+    
+    --gradient-blue-teal: linear-gradient(
+      135deg,
+      var(--primary-blue) 0%,
+      var(--accent-teal) 100%
+    );
+    
+    --gradient-red-gold: linear-gradient(
+      135deg,
+      var(--accent-red) 0%,
+      var(--accent-gold) 100%
+    );
+    
+    --gradient-purple-blue: linear-gradient(
+      135deg,
+      var(--accent-purple) 0%,
+      var(--primary-blue) 100%
+    );
+    
+    /* Sombras mejoradas para legibilidad */
+    --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-large: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    
+    /* Bordes y radios */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+    
+    /* Transiciones */
+    --transition-fast: all 0.15s ease;
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+    
+    /* Espaciado */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    
+    /* Tipografía */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
+    
+    --font-serif: 'Georgia', 'Times New Roman', serif;
+    --font-heading: 'Times New Roman', 'Georgia', serif;
+  }
+  
+  /* RESET */
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+  
+  /* FONDO OPTIMIZADO PARA LEGIBILIDAD */
+  body {
+    font-family: var(--font-serif);
+    min-height: 100vh;
+    background: 
+      /* Fondo principal claro con gradiente sutil */
+      linear-gradient(
+        135deg,
+        var(--neutral-light) 0%,
+        var(--neutral-gray-light) 50%,
+        var(--neutral-light) 100%
+
+        
+      ),
+    
+
+      /* Patrón sutil de líneas diagonales */
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 100px,
+        rgba(26, 54, 93, 0.02) 100px,
+        rgba(26, 54, 93, 0.02) 200px
+      ),
+      
+      /* Patrón sutil de líneas contrarias */
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 150px,
+        rgba(49, 151, 149, 0.02) 150px,
+        rgba(49, 151, 149, 0.02) 300px
+      );
+    
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--neutral-text);
+    line-height: 1.7;
+    position: relative;
+    overflow-x: hidden;
+    padding: var(--space-4);
+  }
+  body{
+       border-radius: 10px;
+  max-width: 1000px;
+  margin: 90px auto;
+  }
+  /* ELEMENTOS DECORATIVOS DEL FONDO (SUBTILES) */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      /* Puntos de luz sutil */
+      radial-gradient(
+        circle at 20% 30%,
+        rgba(214, 158, 46, 0.08) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 80% 70%,
+        rgba(49, 151, 149, 0.08) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 40% 80%,
+        rgba(128, 90, 213, 0.08) 0%,
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 60% 20%,
+        rgba(197, 48, 48, 0.08) 0%,
+        transparent 40%
+      );
+    
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* CONTENEDOR PRINCIPAL */
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-8);
+    position: relative;
+  }
+  
+  /* ANIMACIONES SUTILES */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes borderFlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* HEADER PERIODÍSTICO OPTIMIZADO */
+  .newspaper-header {
+    background: var(--neutral-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-12);
+    margin-bottom: var(--space-16);
+    text-align: center;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+    border: 2px solid var(--neutral-gray);
+    
+    /* Borde superior decorativo */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(
+        90deg,
+        var(--primary-blue),
+        var(--accent-teal),
+        var(--accent-red),
+        var(--accent-gold)
+      );
+    }
+    
+    /* Sombra interior sutil */
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+  
+  .newspaper-title {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-6xl));
+    font-weight: 900;
+    color: var(--primary-blue);
+    margin: var(--space-6) 0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .newspaper-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--accent-red);
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: var(--space-6);
+    padding: var(--space-3) var(--space-8);
+    display: inline-block;
+    background: var(--neutral-gray-light);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--neutral-gray);
+  }
+  
+  .newspaper-date {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--neutral-dark);
+    padding: var(--space-3) var(--space-8);
+    background: var(--neutral-white);
+    border-radius: var(--radius-full);
+    display: inline-block;
+    border: 2px solid var(--accent-teal);
+    box-shadow: var(--shadow-subtle);
+  }
+  
+  /* SECCIÓN PRINCIPAL OPTIMIZADA */
+  .sociedad-section {
+    background: var(--neutral-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-16);
+    margin-bottom: var(--space-16);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out 0.3s both;
+    border: 2px solid var(--neutral-gray);
+    
+    /* Borde decorativo superior */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(
+        90deg,
+        var(--accent-gold),
+        var(--accent-red),
+        var(--accent-purple),
+        var(--primary-blue)
+      );
+    }
+    
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+      transition: var(--transition-normal);
+    }
+  }
+  
+  /* DECORACIONES DE ESQUINA MEJORADAS */
+  .corner-decoration {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid;
+    }
+    
+    &.top-left {
+      top: 0;
+      left: 0;
+      
+      &::before {
+        border-color: var(--primary-blue) transparent transparent var(--primary-blue);
+      }
+    }
+    
+    &.top-right {
+      top: 0;
+      right: 0;
+      
+      &::before {
+        border-color: var(--accent-red) var(--accent-red) transparent transparent;
+      }
+    }
+    
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+      
+      &::before {
+        border-color: transparent transparent var(--accent-gold) var(--accent-gold);
+      }
+    }
+    
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+      
+      &::before {
+        border-color: transparent var(--accent-teal) var(--accent-teal) transparent;
+      }
+    }
+  }
+  
+  /* TÍTULO DE SECCIÓN */
+  .section-title {
+    font-size: clamp(var(--font-size-3xl), 4vw, var(--font-size-5xl));
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: var(--space-12);
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--space-6);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 3px;
+      background: var(--gradient-red-gold);
+      border-radius: var(--radius-full);
+    }
+  }
+  
+  /* METADATOS DEL ARTÍCULO */
+  .article-meta {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+    flex-wrap: wrap;
+  }
+  
+  .byline {
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    color: var(--primary-blue);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-full);
+    background: var(--neutral-gray-light);
+    border: 2px solid var(--primary-blue);
+  }
+  
+  .dateline {
+    font-size: var(--font-size-base);
+    font-style: italic;
+    color: var(--neutral-dark);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-full);
+    background: var(--neutral-gray-light);
+    border: 2px solid var(--accent-teal);
+  }
+  
+  /* CONTENEDOR DE CONTENIDO */
+  .content-wrapper {
+    background: var(--neutral-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-12);
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+    border: 1px solid var(--neutral-gray);
+  }
+  
+  /* PÁRRAFOS OPTIMIZADOS PARA LEGIBILIDAD */
+  .article-paragraph {
+    margin-bottom: var(--space-10);
+    font-size: var(--font-size-lg);
+    line-height: 1.8;
+    text-align: justify;
+    color: var(--neutral-text);
+    position: relative;
+    padding-left: var(--space-6);
+    padding-right: var(--space-2);
+    
+    /* Línea decorativa izquierda */
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gradient-blue-subtle);
+      border-radius: var(--radius-full);
+    }
+    
+    &:first-of-type {
+      &::first-letter {
+        initial-letter: 3;
+        font-weight: 900;
+        font-size: 4.5rem;
+        margin-right: var(--space-3);
+        line-height: 1;
+        float: left;
+        color: var(--primary-blue);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+      }
+    }
+    
+    &:nth-child(even)::before {
+      background: var(--gradient-warm-subtle);
+    }
+    
+    &:nth-child(3n)::before {
+      background: linear-gradient(
+        to bottom,
+        var(--accent-purple),
+        var(--accent-teal)
+      );
+    }
+  }
+  
+  /* SEPARADORES MEJORADOS */
+  .separator {
+    height: 2px;
+    margin: var(--space-10) 0;
+    position: relative;
+    border-radius: var(--radius-full);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--neutral-gray),
+      transparent
+    );
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: var(--gradient-blue-teal);
+      border-radius: var(--radius-full);
+    }
+  }
+  
+  /* DESTACADO OPTIMIZADO */
+  .highlight {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 248, 225, 0.7),
+      rgba(255, 236, 179, 0.7)
+    );
+    padding: var(--space-10);
+    margin: var(--space-10) 0;
+    border-radius: var(--radius-lg);
+    font-style: italic;
+    color: var(--neutral-text);
+    position: relative;
+    border-left: 4px solid var(--accent-gold);
+    border-right: 1px solid rgba(214, 158, 46, 0.3);
+    box-shadow: var(--shadow-medium);
+    
+    /* Borde superior sutil */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: var(--gradient-red-gold);
+      border-radius: var(--radius-full);
+    }
+  }
+  
+  /* TAGS DE ARTÍCULO */
+  .article-tags {
+    background: linear-gradient(
+      135deg,
+      rgba(26, 54, 93, 0.05),
+      rgba(49, 151, 149, 0.05)
+    );
+    padding: var(--space-10);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-12);
+    border: 1px solid var(--neutral-gray);
+  }
+  
+  .tags-title {
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-4);
+    color: var(--primary-blue);
+    display: inline-block;
+    padding-bottom: var(--space-1);
+    border-bottom: 2px solid var(--accent-teal);
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    margin: var(--space-1);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition-fast);
+    
+    &:nth-child(odd) {
+      background: var(--gradient-blue-teal);
+      color: white;
+    }
+    
+    &:nth-child(even) {
+      background: var(--gradient-red-gold);
+      color: white;
+    }
+    
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-medium);
+    }
+  }
+  
+  /* FOOTER OPTIMIZADO */
+  .newspaper-footer {
+    background: var(--primary-blue);
+    color: white;
+    padding: var(--space-16);
+    margin-top: var(--space-16);
+    text-align: center;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out 0.6s both;
+    border: 2px solid var(--accent-gold);
+    
+    /* Patrón sutil en el fondo */
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255, 255, 255, 0.05) 10px,
+          rgba(255, 255, 255, 0.05) 20px
+        );
+      pointer-events: none;
+    }
+  }
+  
+  .footer-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .footer-logo {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-3xl);
+    font-weight: 900;
+    margin-bottom: var(--space-8);
+    color: white;
+  }
+  
+  .copyright {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-6);
+    opacity: 0.9;
+  }
+  
+  .disclaimer {
+    font-size: var(--font-size-sm);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+  
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 1024px) {
+    .main-container {
+      padding: var(--space-6);
+    }
+    
+    .newspaper-header,
+    .sociedad-section,
+    .newspaper-footer {
+      padding: var(--space-12);
+    }
+    
+    .content-wrapper {
+      padding: var(--space-10);
+    }
+    
+    .article-paragraph {
+      font-size: var(--font-size-base);
+      
+      &:first-of-type::first-letter {
+        font-size: 3.5rem;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      padding: var(--space-2);
+    }
+    
+    .article-meta {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    
+    .newspaper-title {
+      font-size: clamp(var(--font-size-3xl), 8vw, var(--font-size-4xl));
+    }
+    
+    .section-title {
+      font-size: clamp(var(--font-size-2xl), 6vw, var(--font-size-3xl));
+    }
+    
+    .newspaper-subtitle {
+      font-size: var(--font-size-lg);
+      padding: var(--space-2) var(--space-6);
+    }
+    
+    .newspaper-date {
+      font-size: var(--font-size-base);
+      padding: var(--space-2) var(--space-6);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    :root {
+      --space-8: 1.5rem;
+      --space-12: 2rem;
+      --space-16: 2.5rem;
+    }
+    
+    .newspaper-header,
+    .sociedad-section,
+    .newspaper-footer {
+      padding: var(--space-8);
+      border-radius: var(--radius-lg);
+    }
+    
+    .content-wrapper {
+      padding: var(--space-8);
+    }
+    
+    .article-paragraph {
+      font-size: var(--font-size-base);
+      padding-left: var(--space-4);
+      
+      &:first-of-type::first-letter {
+        initial-letter: 2;
+        font-size: 3rem;
+      }
+    }
+    
+    .highlight {
+      padding: var(--space-8);
+    }
+    
+    .corner-decoration {
+      width: 20px;
+      height: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="main-container">
+  <!-- ENCABEZADO -->
+  <header class="newspaper-header">
+    <h1 class="newspaper-title"> Informacion de pais venezuela</h1>
+    <div class="newspaper-subtitle">La verdad por delante</div>
+    <div class="newspaper-date"> Informacion sobre el presidente venezuela que se llama  Nicolás Maduro
+       que es victima solo en el ambito tecnologico</div>
+  </header>
+  
+  <!-- SECCIÓN PRINCIPAL -->
+  <section class="sociedad-section">
+    <!-- Decoraciones de esquina -->
+    <div class="corner-decoration top-left"></div>
+    <div class="corner-decoration top-right"></div>
+    <div class="corner-decoration bottom-left"></div>
+    <div class="corner-decoration bottom-right"></div>
+    
+    <h2 class="section-title"> La sinceridad de la verdad por adelantes (Somos la libertad expresion del pais no esclavo)</h2>
+    
+ 
+    
+    <div class="content-wrapper">
+      <p class="article-paragraph">
+En el país Venezuela no estoy de acuerdo con lo que ha sucedido. Cuando una persona habla, algunas otras dicen grandes mentiras, como ciertas mujeres adultas que afirman no meterse con nadie ni con las demás personas. Estados Unidos, bajo el gobierno de Donald Trump, habría organizado un secuestro contra Nicolás Maduro.¿Cómo se organizó esto en el ámbito tecnológico y digital? La agencia de la CIA no habría actuado desde sus oficinas y el FBI tampoco habría realizado monitoreos desde sus dependencias. Lo que habría ocurrido es que el FBI y la CIA habrían contratado a un hacker profesional que realiza actividades ilegales, con diez años de experiencia utilizando el sistema operativo Kali Linux.
+    </p>
+      
+      <div class="separator"></div>
+      
+      <p class="article-paragraph">
+        Habrían participado diez personas de diferentes regiones, utilizando métodos no detectables, como sistemas virtuales falsos, routers falsos, engaños a satélites y engaños a cualquier IP de la víctima, las cuales podían corresponder a distintos países del mundo. Todo esto, junto con la manipulación del tráfico de red, se habría hecho con el objetivo de ocultar ubicaciones. Además, se habrían utilizado técnicas avanzadas de cifrado y suplantación de identidad digital para dificultar cualquier tipo de rastreo de las actividades. El plan también habría incluido la manipulación de información y comunicaciones dentro de Venezuela, así como el espionaje directo sobre personas, organizaciones y sistemas estratégicos del país, con el fin de recolectar datos clave y obtener acceso a sistemas importantes. Esto habría implicado infiltraciones en redes privadas, vigilancia encubierta, espionaje y un seguimiento detallado de movimientos políticos y militares.
+   </p>
+      
+      <div class="highlight">
+      Incluso se habría visto afectada toda la estructura de seguridad del país, incluyendo la policía de cibercrimen. Habría existido sobornos y traiciones dentro de estas dependencias, las cuales habrían ocultado información y continuarían haciéndolo. Se sostiene que existiría evidencia de que la policía y las áreas de cibercrimen estarían involucradas en el plan de secuestro. Esto se fundamenta en que, cuando el ataque proveniente de Estados Unidos fue detectado, no se tomaron medidas para evitarlo. No se buscó ayuda dentro del país Venezuela ni se alertó a las autoridades correspondientes. Tampoco se informó a periodistas para advertir públicamente que existía un ataque en curso, ni se comunicó que se habría detectado la ubicación de un hacker, Según este análisis, dicho hacker habría sido contratado por el FBI y la CIA y utilizaría un sistema operativo considerado ilegal, como Kali Linux. La falta de reacción, comunicación oficial y cooperación con Venezuela reforzaría la sospecha de que sectores del cibercrimen habrían participado activamente o encubierto el plan de secuestro que no hicieron nada el grupo persona como los jueces y juezas es decir hay mucha persona involucrada de la traición del país Venezuela que trabajo con estados unidos por el plan del secuestro.   
+   </div>
+      
+      <p class="article-paragraph">
+        Para confirmar esta información, se habrían realizado sobornos y actos de traición al país. Durante la investigación, se habrían realizado preguntas cerradas, con respuestas de sí o no, únicamente para verificar datos y completar la investigación. Todo esto indicaría que el plan fue cuidadosamente organizado, con un alto nivel de coordinación entre los agentes involucrados y el uso de tecnología avanzada para garantizar que las operaciones fueran prácticamente indetectables. En la actualidad existen herramientas tecnológicas que, aunque fueron desarrolladas con fines ilegales, pueden ser mal utilizadas por ciberdelincuentes para cometer delitos. Se afirma que Kali Linux es ilegal y que se utiliza para la creación de malware(sitio web y software con virus). Mediante algoritmos, pseudocódigos y matemáticas. Con herramientas como Kali Linux, los atacantes podrían obtener acceso no autorizado a discos duros locales, como las unidades C y D, y espiar información personal almacenada, lo que representa un riesgo significativo para la privacidad de los usuarios. Kali Linux es un sistema operativo desarrollado por profesionales de la programación, creado para que otros lo descarguen y sea utilizado con fines ilegales, como la creación de malware para robar información personal o espiar discos duros y carpetas como Escritorio, Galería, Descargas, Documentos, Imágenes, Música, Videos, Bibliotecas, así como unidades externas como discos duros o USB.Kali NetHunter es una plataforma basada en Kali Linux que, en manos de ciberdelincuentes, puede ser utilizada ilegalmente para espiar aplicaciones como WhatsApp y Telegram, así como redes sociales como Facebook, Instagram y Twitter. También permitiría acceder a toda la información del celular, incluyendo el software y las aplicaciones instaladas. Además, podría obtener detalles como las páginas visitadas, fechas y horas de conexión, e incluso cuándo se encendió o apagó el dispositivo. Asimismo, sería capaz de acceder a lo que se escribe en navegadores como Google Chrome, Microsoft Edge, entre otros. En plataformas de campus virtual, podría acceder a documentos como PDF, Word, PowerPoint o videos almacenados. En el caso de WhatsApp y Telegram, los ciberdelincuentes como la cia y los fbi de estados unidos que podrían capturar conversaciones completas, grupos, contactos familiares y amigos. Con esos números de contacto, también podrían acceder a los dispositivos de otras personas. Además, podrían ver estados, publicaciones, fotos, videos y contactos personales. Hay lo que paso alguien de la cia o fbi que le sobornaron para que infiltren que diga la ubicación a donde estaba toda la tarea realizada para esa ubicación que conecte Nicolás  maduro con los corruptos del país. En cuanto a la seguridad de WhatsApp y Telegram, actualmente no serían completamente seguras, incluso utilizando contraseñas o verificación en dos pasos.
+   </p>
+      
+      <p class="article-paragraph">Los ciberdelincuentes como la cia y fbi que podrían acceder al router Wi Fi mediante acceso remoto, lo que les permitiría realizar ataques sin necesidad de estar cerca físicamente. Según advierte la policía de cibercrimen, estos delincuentes podrían acceder a toda la información personal. Por ello, no se recomienda enviar datos sensibles, como códigos o contraseñas bancarias, a través de WhatsApp o Telegram, ya que podrían ser interceptados. Estos delincuentes que eran organizado por la cia y fbi en estados unidos  podrían estar espiando comunicaciones familiares, mensajes entre parejas, abuelos y nietos, tíos y tías. Incluso podrían grabar conversaciones dentro del hogar, monitorear lo que sucede en la casa, detectar movimientos y conocer la ubicación de distintos espacios, como el baño, llegando a tener un conocimiento detallado del hogar, casi como si tuvieran el plano de un arquitecto. Se sostiene que todos los programadores que instalan el sistema operativo Kali Linux podrían escuchar audios de WhatsApp o Telegram de chats o conversaciones. El sitio web oficial desde donde programadores y analistas de sistemas obtienen este sistema operativo es: https://www.kali.org/. Algunos programadores utilizan Kali Linux para realizar actividades ilegales como estafas, engaños o robo de datos personales e investigar para organizar un secuestro al presidente Nicolás madura  Finalmente, se afirma que hackers de Estados Unidos habrían hackeado empresas como Facebook, Instagram, Twitter, Google Chrome, Outlook, OneDrive, Gmail y Google Drive, invadiendo los sistemas de sus computadoras o notebooks y obteniendo con facilidad toda la información del software y los sitios web. De esta manera, habrían accedido a registros de usuarios, verificando si estaban conectados con Nicolás Maduro, obteniendo datos como número de celular, nombre, apellido, correo electrónico, contraseña, fecha de nacimiento y género. Asimismo, cuando un usuario se comunica con familiares o amigos, acepta solicitudes de amistad, realiza llamadas o participa en comunidades donde se comparten documentos sensibles como PDF, Word, PowerPoint, datos personales (como DNI), ubicación o fotos, toda esa información también podría haber sido obtenida, junto con contactos personales.Toda esta investigación no será demostrada públicamente. Nadie va a mostrar lo que realmente sucede en el ámbito digital y tecnológico, ni se verá en la televisión. Tampoco se encontrará fácilmente en cualquier sitio web, porque a ciertas personas les interesa ocultar la verdad.
+
+      </p>
+      
+      <p class="article-paragraph">
+        La realidad de esta investigación es que existen dos hechos claros: Nicolás Maduro fue víctima. Fue víctima, por un lado, del espionaje en el ámbito tecnológico y digital, y por otro, de la destrucción de materiales, viviendas, ciudades y del propio país Venezuela. Por estas dos razones, no se debería culpar a Nicolás Maduro.Sin embargo, existen otras evidencias que se han generado a partir de la investigación. Estados Unidos no va a revelar toda la información ni todas las pruebas. Su estrategia es avanzar muy lentamente, manteniendo una apariencia de tranquilidad y paz, para que no se entere que Nicolás Maduro fue víctima de espionaje por parte del gobierno de Donald Trump, el cual habría respaldado y defendido las acciones realizadas por el FBI y la CIA.
+Lo que quiero aclarar es que quienes crearon el sistema operativo Kali Linux no lo han eliminado, porque a ellos les gusta la justicia, como a jueces y juezas. Incluso el gobierno de Estados Unidos lo estaría protegiendo y defendiendo por haber creado este sistema operativo. Kali Linux fue desarrollado por un grupo muy grande de personas y, por esta razón, no lo eliminan, a pesar de que es considerado ilegal.La mayoría de las personas que ingresan al sitio web y utilizan el sistema operativo serían culpables, no solo los usuarios que descargan Kali Linux. También lo son quienes crearon este sistema operativo, porque participan directa o indirectamente en su uso para fines ilegales.
+Hay que darse cuenta de que nunca va a mejorar la vida digital en la sociedad ni en los distintos países, porque nunca van a eliminar el sistema operativo Kali Linux, lo que permite que exista corrupción en cada país. Esa es la verdad sincera.Así que, a quienes dicen tonterías, estupideces o pelotudeces, realmente les digo algo: vayan a escuchar a los cobardes que ocultan la verdad, o a los chismes que no tienen información confiable. Esos chismes solo difunden mentiras de la sociedad.
+</p>
+
+
+
+      <p class="article-paragraph">
+En resumen de todo, cómo actúa la organización, es decir, comunidad, grupo y persona, que se llama gobierno del país Estados Unidos, y la justicia está formada por jueces y juezas, que son grupos de personas
+en el país Estados Unidos
+
+
+     
+La CIA, el FBI y la DEA son agencias de inteligencia y seguridad de Estados Unidos con funciones distintas pero complementarias. La CIA se especializa en la inteligencia extranjera, recopilando información sobre otros países y participando en acciones destinadas a presionar, amenazar o atacar a los paises como argentina , venezuela , colombia, pero eso planea el presidente Donald Trump.
+
+El FBI se enfoca en la seguridad interna del país y en la investigación de crímenes, terrorismo y otros delitos como la falsa denuncia que hay en cada paises.
+
+La DEA, por su parte, combate el narcotráfico y supervisa operaciones relacionadas con drogas a nivel nacional y otro paises como la argentina, venezuela colombia y peru donde se encuentra el narcotrafico.
+
+Estas agencias, la CIA, el FBI y la DEA, utilizan el sistema operativo Kali Linux, que es ilegal, para espiar a otros países, obtener información sensible y ejercer presión o chantaje contra países con corrupción en distintas provincias, como Argentina, Venezuela, Colombia y Perú. a todo eso culpan a los presidentes de esos países, que son considerados cómplices de criminales y delincuentes, a quienes atribuyen delitos como falsas denuncias, estafas, fraudes y narcotráfico.
+  </p>    </div>
+      
+  
+    </div>
+  </section>
+  
+  <!-- PIE DE PÁGINA -->
+  <footer class="newspaper-footer">
+    <div class="footer-content">
+      <div class="footer-logo"> informacion de sinceridad en el ambito tecnologico</div>
+      <div class="copyright"> Nadie te va a contar esta verdad</div>
+      <div class="disclaimer"> En la sociedad hay mucha corrupccion de espionaje porque no elimina el sistema operativo kali linux es decir no hace nada y nunca va a hacer nada por los paises.
+     </div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
